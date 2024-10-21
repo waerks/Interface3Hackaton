@@ -1,0 +1,107 @@
+/* main.css */
+
+/* Styles globaux pour mobile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.8em;
+  }
+  
+  #btns {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #concept-content {
+    padding: 15px;
+  }
+  
+  h3 {
+    font-size: 1.4em;
+    margin-top: 20px;
+  }
+  
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Media queries pour écrans plus larges (tablettes et desktop) */
+  @media (min-width: 768px) {
+    body {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 2.4em;
+    }
+  
+    #btns {
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+    }
+  
+    #concept-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  
+    h3 {
+      font-size: 1.8em;
+    }
+  
+    p {
+      font-size: 1.1em;
+    }
+  }
+  
+  /* Media queries pour desktop */
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3em;
+    }
+  
+    #concept-content {
+      max-width: 900px;
+      padding: 30px;
+    }
+  
+    h3 {
+      font-size: 2em;
+    }
+  
+    p {
+      font-size: 1.2em;
+    }
+  }
+  

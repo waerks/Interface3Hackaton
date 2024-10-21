@@ -2,6 +2,7 @@ let config = {
   type: Phaser.AUTO,
   width: 600,
   height: 640,
+  parent: "game-container", // Lien avec le conteneur de jeu
   physics: {
     default: "arcade",
   },
