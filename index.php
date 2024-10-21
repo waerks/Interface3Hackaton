@@ -16,6 +16,10 @@
 
     <button id="install-button" style="display: none;">Installer l'application</button>
     
+    <!-- *** PHP *** -->
+     <?php
+        echo 'C\'est du PHP :)';
+     ?>
     <!-- *** SCRIPT *** -->
      <script src="js/phaser.min.js"></script>
      <script src="js/game.js"></script>
