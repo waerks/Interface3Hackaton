@@ -1,15 +1,15 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nom = $_POST['nom'];
+    $user = $_POST['user'];
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
  // Charger les utilisateurs existants
  $users = json_decode(file_get_contents('users.json'), true);
 
  // Vérifier si l'utilisateur existe déjà
- foreach ($users as $user) {
-    if ($user['nom'] === $nom || $user['email'] === $email) {
+ foreach ($users as $useri) {
+    if ($useri['user'] === $user || $useri['email'] === $email) {
         echo "L'utilisateur existe déjà.";
         exit;
     }
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Ajouter le nouvel utilisateur
 $new_user = [
-    'nom' => $nom,
+    'user' => $user,
     'email' => $email
 ];
 

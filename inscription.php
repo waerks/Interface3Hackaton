@@ -7,10 +7,10 @@
     <title>Formulaire d'inscription</title>
 </head>
 <body>
-    <form action="./inscriptionTraitement.php" method="POST">
-        Nom:<input class="form-control" type="text" name="nom">
-        Email:<input class="form-control" type="email" name="email">
-        <input type="submit" value="Envoyer">
+    <form id="inscriptionForm" action="./inscriptionTraitement.php" method="POST">
+        Nom:<input class="form-control" type="text" id="user" name="user" required >
+        Email:<input class="form-control" type="email" id="email" name="email" required >
+        <button id="inscription-btn" type="submit">S'inscrire</button>
     </form>
 </body>
 </html>
