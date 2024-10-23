@@ -65,6 +65,25 @@ button:hover {
     background-image: url("../assets/Icons/homeBEIGE.svg");
 }
 
+#back-btn {
+    position: absolute;
+    background-image: url("../assets/Icons/backGREEN.svg");
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#back-btn:active {
+    background-image: url("../assets/Icons/backGREEN.svg");
+}
+
+
 /* Media queries pour les tablettes et desktop */
 @media (min-width: 768px) {
     #login-page {

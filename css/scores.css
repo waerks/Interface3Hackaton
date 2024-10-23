@@ -74,19 +74,20 @@ button:hover {
 
 #home-btn {
     position: absolute;
+    background-image: url("../assets/Icons/homeGREEN.svg");
     top: 10px;
-    left: 10px;
+    right: 10px;
     padding: 10px 15px;
-    background-color: #2980b9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9em;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-#home-btn:hover {
-    background-color: #2980b9;
+#home-btn:active {
+    background-image: url("../assets/Icons/homeBEIGE.svg");
 }
 
 /* Media queries pour les tablettes et desktop */
