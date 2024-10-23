@@ -16,15 +16,10 @@
       <h1>Login</h1>
       <p>Enregistrez-vous pour commencer le quiz</p>
       <div id="login-code">
-        <form id="loginForm">
+        <form id="loginForm" action="./loginTraitement.php" method="POST">
           <label for="user">Utilisateur</label>
-          <input
-            type="text"
-            id="user"
-            name="user"
-            placeholder="Entrez votre nom d'utilisateur"
-            required />
-          <button id="login-btn" type="submit">Log in</button>
+          <input type="text" id="user" name="user" placeholder="Entrez votre nom d'utilisateur" required />
+          <button id="login-btn" type="submit">Se connecter</button>
         </form>
       </div>
     </div>
