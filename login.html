@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <script src="./js/phaser.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+
+  <body>
+    <a href="./index.html"> <button id="home-btn">Home</button></a>
+
+    <div id="login-page">
+      <h1>Login</h1>
+      <p>Enregistrez-vous pour commencer le quiz</p>
+      <div id="login-code">
+        <form id="loginForm">
+          <label for="user">Utilisateur</label>
+          <input
+            type="text"
+            id="user"
+            name="user"
+            placeholder="Entrez votre nom d'utilisateur"
+            required />
+          <button id="login-btn" type="submit">Log in</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Sélectionner les éléments HTML
+      const loginPage = document.getElementById("login-page");
+      const loginBtn = document.getElementById("login-btn");
+
+      // Au click sur loginBtn -> on est redirigé sur le game.html pout débuter le quiz
+      loginBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "./game.html";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <script src="./js/phaser.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+  </head>
+
+  <body>
+    <a href="./index.html"> <button id="home-btn">Home</button></a>
+
+    <button id="start-btn">Start</button>
+
+    <!-- Conteneur pour le jeu -->
+    <div id="game-container"></div>
+
+    <script>
+      // Sélectionner les éléments HTML
+      const startBtn = document.getElementById("start-btn");
+      const gameContainer = document.getElementById("game-container");
+
+      // Au clic sur le bouton "Start", démarrer le quiz
+      startBtn.addEventListener("click", function () {
+        // Masquer le bouton "Start"
+        startBtn.style.display = "none";
+
+        // Démarrer le jeu
+        startQuiz();
+      });
+
+      // Fonction pour initialiser le quiz ou le jeu
+      function startQuiz() {
+        // Charger le fichier game.js pour démarrer le quiz
+        const script = document.createElement("script");
+        script.src = "./js/game.js";
+
+        // Ajouter le script dans le body pour démarrer le jeu
+        document.body.appendChild(script);
+      }
+    </script>
+  </body>
+</html>
