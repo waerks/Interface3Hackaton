@@ -19,8 +19,6 @@ window.onload = function() {
     })
     .then(response => response.text())
     .then(result => {
-        console.log(result);
-
         calculateAverageScore();
     })
     .catch(error => {

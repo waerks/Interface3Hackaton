@@ -25,6 +25,7 @@ let nextQuestionImage, logoImage;
 let questionText;
 let answerText = [];
 let restartImage;
+let answerFeedbackText = [];
 
 function preload() {
   this.load.image("background", "./assets/Sprites/background.png");
@@ -70,6 +71,20 @@ function create() {
       "answerpanel"
     );
     answerPanelImage[i].setScale(1.2, 0.8);
+    answerPanelImage[i].setInteractive();
+
+    // Ajouter un objet de texte pour chaque réponse, initialement caché
+    answerFeedbackText[i] = this.add.text(
+      config.width / 2, // centrer horizontalement
+      220 + 100 * i + 20, // positionner sous l'image
+      "", // texte initial
+      {
+        fontFamily: "Arial",
+        fontSize: 16,
+        color: "#ffffff",
+      }
+    ).setOrigin(0.5); // centrer le texte
+    answerFeedbackText[i].setVisible(false); 
     answerPanelImage[i].on("pointerdown", () => {
       checkAnswer(i);
     });
@@ -142,13 +157,23 @@ function create() {
   }
 }
 
+const explication = document.createElement("div");
+
+explication.textContent = "TEST";
+
 function checkAnswer(answerNumber) {
+  console.log(checkAnswer);
   for (let i = 0; i < 3; i++) {
     answerPanelImage[i].disableInteractive();
   }
   nextQuestionImage.setVisible(true);
   starImage[questionIndex].setVisible(true);
   answerPanelImage[questions[questionIndex].goodAnswer].tint = 0x22ff22;
+
+  // Afficher "TEST" sous la bonne réponse
+  answerFeedbackText[questions[questionIndex].goodAnswer].setText("TEST");
+  answerFeedbackText[questions[questionIndex].goodAnswer].setVisible(true);
+  
   if (answerNumber == questions[questionIndex].goodAnswer) {
     score += 1;
     goodAnswerSound.play();
@@ -165,6 +190,8 @@ function nextQuestion() {
   questionIndex += 1;
   logoImage.setVisible(false);
   for (let i = 0; i < 3; i++) {
+    answerFeedbackText[i].setText("");
+    answerFeedbackText[i].setVisible(false);
     answerPanelImage[i].setInteractive();
   }
   if (questionIndex < 10) {
