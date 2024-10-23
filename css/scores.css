@@ -1,0 +1,136 @@
+/* login.css */
+
+/* Styles généraux pour mobile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#login-page {
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#home-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+#home-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Media queries pour les tablettes et desktop */
+@media (min-width: 768px) {
+    #login-page {
+        width: 50%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    input {
+        font-size: 1.1em;
+    }
+
+    button {
+        font-size: 1.5em;
+        padding: 15px 30px;
+    }
+}
+
+/* Pour les écrans de bureau (desktop) */
+@media (min-width: 1024px) {
+    #login-page {
+        width: 35%;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    input {
+        font-size: 1.2em;
+    }
+
+    button {
+        font-size: 1.3em;
+        padding: 16px;
+    }
+
+    #home-btn {
+        font-size: 1.1em;
+        padding: 14px 20px;
+    }
+}
