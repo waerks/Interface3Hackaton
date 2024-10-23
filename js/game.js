@@ -181,6 +181,14 @@ function nextQuestion() {
     }
     questionText.text = "Votre score est de " + score + " / 10";
     restartImage.setVisible(true);
+
+    // Stocker le score dans localStorage
+    localStorage.setItem('score', score);
+
+    // Rediriger vers la page scores.html après quelques secondes (optionnel)
+    setTimeout(() => {
+      window.location.href = 'scores.html';
+    }, 3000);
   }
   nextQuestionImage.setVisible(false);
 }

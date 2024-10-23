@@ -5,6 +5,8 @@ $scoresFile = 'assets/Data/scores.json';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $score = $_POST['score'];
 
+    var_dump($_POST);
+
     // Charger les scores existants
     $scores = json_decode(file_get_contents($scoresFile), true);
 
@@ -13,14 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $scores = [];
     }
     
-    // Ajoute le nouveau score
+    // Ajoute le nouveau score avec la date
     $scores[] = [
-        'score' => $score
+        'score' => $score,
     ];
 
     // Enregistrer le nouveau score
     file_put_contents($scoresFile, json_encode($scores, JSON_PRETTY_PRINT));
 
     echo "Score sauvegardé avec succès!";
-    
 }
