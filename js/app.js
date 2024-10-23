@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // SCORE VERS DB
 let score = 0;
 
@@ -21,8 +20,8 @@ document.getElementById('save-score').addEventListener('click', function() {
     .then(response => response.text())
     .then(result => {
         alert(result);
+      });
     });
-=======
 // SERVICE WORKER
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -60,5 +59,4 @@ window.addEventListener('beforeinstallprompt', (e) => {
       deferredPrompt = null; // Réinitialise le prompt
     });
   });
->>>>>>> 5750637461ec7f5162bc50fae2a8acf59df217f8
 });
