@@ -21,5 +21,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-// 2. Chercher le login dans la BD et obtenir son password
-// 3. Comparer le password reçu du formulaire avec le password de l'user obtenu de la BD
+// 4. Chercher le login dans la BD et obtenir son password
+// 5. Comparer le password reçu du formulaire avec le password de l'user obtenu de la BD
