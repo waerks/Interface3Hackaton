@@ -24,9 +24,11 @@ p {
     text-align: center;
 }
 
-#login-page {
-    width: 90%;
-    max-width: 400px;
+#inscription-page {
+    /* width: 50%;
+    max-width: 375px; */
+    width: 250px;
+    height: 50px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
