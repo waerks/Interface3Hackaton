@@ -1,8 +1,7 @@
-/* login.css */
-
-/* Styles généraux pour mobile */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
     margin: 0;
     padding: 0;
     display: flex;
@@ -58,20 +57,6 @@ input {
     box-sizing: border-box;
 }
 
-button {
-    padding: 12px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
 #home-btn {
     position: absolute;
     background-image: url("../assets/Icons/homeGREEN.svg");
@@ -79,8 +64,8 @@ button:hover {
     right: 10px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -88,6 +73,23 @@ button:hover {
 
 #home-btn:active {
     background-image: url("../assets/Icons/homeBEIGE.svg");
+}
+#back-btn {
+    position: absolute;
+    background-image: url("../assets/Icons/backGREEN.svg");
+    top: 30px;
+    left: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#back-btn:active {
+    background-image: url("../assets/Icons/backBEIGE.svg");
 }
 
 /* Media queries pour les tablettes et desktop */
@@ -108,6 +110,11 @@ button:hover {
     button {
         font-size: 1.5em;
         padding: 15px 30px;
+    }
+    #home-btn,
+    #back-btn {
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -133,5 +140,10 @@ button:hover {
     #home-btn {
         font-size: 1.1em;
         padding: 14px 20px;
+    }
+    #home-btn,
+    #back-btn {
+        width: 40px;
+        height: 40px;
     }
 }

@@ -1,144 +1,139 @@
-/* main.css */
-
-/* Styles globaux pour mobile */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  h1 {
+    background: rgb(25, 60, 64);
+    background: linear-gradient(0deg, rgba(25, 60, 64, 1) 32%, rgba(27, 89, 78, 1) 100%);
+    color: white;
+}
+
+h1 {
     text-align: center;
     margin-top: 20px;
     font-size: 1.8em;
-  }
-  
-  #btns {
+    color: #44f2d2;
+    text-shadow: 2px 2px 10px white;
+}
+
+#btns {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
-  }
-  
-  button {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  #concept-content {
+}
+
+#concept-content {
     padding: 15px;
-  }
-  
-  h3 {
-    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.3em;
     margin-top: 20px;
-  }
-  
-  p {
+    color: #2b9380;
+}
+
+p {
     font-size: 1em;
     line-height: 1.6;
     margin-bottom: 15px;
-  }
-  
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
 
-  #home-btn {
+#home-btn {
     position: absolute;
-    background-image: url("../assets/Icons/homeGREEN.svg");
+    background-image: url("../assets/Icons/house\ \(9\).svg");
     top: 10px;
     right: 10px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-#home-btn:active {
-    background-image: url("../assets/Icons/homeBEIGE.svg");
 }
 
 #back-btn {
     position: absolute;
-    background-image: url("../assets/Icons/backGREEN.svg");
+    background-image: url("../assets/Icons/arrow-left\ \(2\).svg");
     top: 10px;
     left: 10px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-#back-btn:active {
-    background-image: url("../assets/Icons/backGREEN.svg");
+/* Media queries pour écrans plus larges (tablettes et desktop) */
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.4em;
+    }
+
+    #btns {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+
+    #concept-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    #home-btn,
+    #back-btn {
+        width: 35px;
+        height: 35px;
+    }
 }
 
-  /* Media queries pour écrans plus larges (tablettes et desktop) */
-  @media (min-width: 768px) {
-    body {
-      padding: 20px;
-    }
-  
+/* Media queries pour desktop */
+@media (min-width: 1024px) {
     h1 {
-      font-size: 2.4em;
+        font-size: 3em;
     }
-  
-    #btns {
-      justify-content: center;
-      gap: 20px;
-    }
-  
-    button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-    }
-  
+
     #concept-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+        max-width: 900px;
+        padding: 30px;
     }
-  
+
     h3 {
-      font-size: 1.8em;
+        font-size: 2em;
     }
-  
+
     p {
-      font-size: 1.1em;
+        font-size: 1.2em;
     }
-  }
-  
-  /* Media queries pour desktop */
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: 3em;
+
+    #home-btn,
+    #back-btn {
+        width: 40px;
+        height: 40px;
     }
-  
-    #concept-content {
-      max-width: 900px;
-      padding: 30px;
-    }
-  
-    h3 {
-      font-size: 2em;
-    }
-  
-    p {
-      font-size: 1.2em;
-    }
-  }
-  
+}

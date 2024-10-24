@@ -1,7 +1,7 @@
 let config = {
   type: Phaser.AUTO,
-  width: 600,
-  height: 640,
+  width: window.innerWidth,  // Largeur adaptative
+  height: window.innerHeight, // Hauteur adaptative
   parent: "game-container", // Lien avec le conteneur de jeu
   physics: {
     default: "arcade",
@@ -167,7 +167,7 @@ function nextQuestion() {
   for (let i = 0; i < 3; i++) {
     answerPanelImage[i].setInteractive();
   }
-  if (questionIndex < 10) {
+  if (questionIndex < 5) {
     questionText.text = questions[questionIndex].title;
     for (let i = 0; i < 3; i++) {
       answerText[i].setVisible(true);
@@ -181,6 +181,7 @@ function nextQuestion() {
     }
     questionText.text = "Votre score est de " + score + " / 10";
     restartImage.setVisible(true);
+
   }
   nextQuestionImage.setVisible(false);
 }

@@ -1,114 +1,107 @@
-/* Styles généraux pour mobile */
-
-body,
-html {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
-  overflow: hidden; /* Empêche le débordement */
+body {
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(25, 60, 64);
+    background: linear-gradient(0deg, rgba(25, 60, 64, 1) 32%, rgba(27, 89, 78, 1) 100%);
 }
 
 #game-container {
-  width: 100%; /* Largeur dynamique */
-  max-width: 600px; /* Largeur max pour le jeu */
-  height: 640px; /* Hauteur fixe pour le jeu */
-}
-
-h1 {
-  font-size: 2.2em;
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
+    width: 80%;
+    height: 60%;
+    margin-top: 20%;
 }
 
 #start-btn {
-  padding: 10px 25px;
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2em;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-#start-btn:hover {
-  background-color: #229954;
+    position: absolute;
+    top: 40%;
+    margin-top: 5%;
+    padding: 2%;
+    width: 15%;
+    height: 7%;
+    border: 1px solid #44f2d2;
+    box-shadow: 2px 2px 15px white;
+    border-radius: 50%;
+    background-image: url("../assets/Icons/powerWhite.svg");
+    background-size: 60%; /* Ajuste selon tes besoins */
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #home-btn {
     position: absolute;
-    background-image: url("../assets/Icons/homeGREEN.svg");
+    background-image: url("../assets/Icons/house\ \(9\).svg");
     top: 10px;
     right: 10px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-#home-btn:active {
-    background-image: url("../assets/Icons/homeBEIGE.svg");
 }
 
 #back-btn {
     position: absolute;
-    background-image: url("../assets/Icons/backGREEN.svg");
+    background-image: url("../assets/Icons/arrow-left\ \(2\).svg");
     top: 10px;
     left: 10px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-#back-btn:active {
-    background-image: url("../assets/Icons/backGREEN.svg");
-}
-
-
 /* Media queries pour tablettes et petits écrans */
 @media (min-width: 768px) {
-  #start-btn {
-    font-size: 1.5em;
-    padding: 15px 30px;
-  }
+    #start-btn {
+        font-size: 1.5em;
+        padding: 15px 30px;
+        max-width: 300px;
+    }
 
-  #home-btn {
-    font-size: 1em;
-    padding: 12px 18px;
-  }
+    #home-btn {
+        font-size: 1em;
+        padding: 12px 18px;
+    }
+
+    #home-btn,
+    #back-btn {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 /* Pour les écrans de bureau (desktop) */
 @media (min-width: 1024px) {
-  body {
-    justify-content: center;
-    align-items: center;
-  }
+    body {
+        justify-content: center;
+        align-items: center;
+    }
 
-  #start-btn {
-    font-size: 1.8em;
-    padding: 20px 40px;
-  }
+    #start-btn {
+        font-size: 1.8em;
+        padding: 20px 40px;
+    }
 
-  #home-btn {
-    font-size: 1.1em;
-    padding: 14px 20px;
-  }
-
-  
+    #home-btn {
+        font-size: 1.1em;
+        padding: 14px 20px;
+    }
+    #home-btn,
+    #back-btn {
+        width: 40px;
+        height: 40px;
+    }
 }
-

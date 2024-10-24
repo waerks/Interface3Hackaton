@@ -1,5 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
     margin: 0;
     padding: 0;
     display: flex;
@@ -7,30 +9,34 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4f4f9;
+    background: rgb(25, 60, 64);
+    background: linear-gradient(0deg, rgba(25, 60, 64, 1) 32%, rgba(27, 89, 78, 1) 100%);
 }
 
 h1 {
     font-size: 2em;
-    color: #333;
     margin-bottom: 20px;
     text-align: center;
+    color: #44f2d2;
+    text-shadow: 1px 2px 5px white;
+    letter-spacing: 2px;
 }
 
 p {
-    font-size: 1.2em;
-    color: #555;
+    font-size: 1.1em;
     margin-bottom: 30px;
     text-align: center;
+    letter-spacing: 1px;
 }
 
 #login-page {
     width: 70%;
     height: 60%;
-    background-color: white;
+    color: #2b9380;
+    border: 1px solid #44f2d2;
+    box-shadow: 2px 2px 20px white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,55 +62,58 @@ input {
     height: 15%;
     margin-bottom: 3%;
     border-radius: 5px;
-    border: 1px solid grey;
-    box-shadow: 5px 5px 5px grey;
+    border: 1px solid white;
+    box-shadow: 2px 2px 10px #44f2d2;
+}
+
+::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    padding-left: 2%;
 }
 
 #home-btn {
     position: absolute;
-    background-image: url("../assets/Icons/homeGREEN.svg");
+    background-image: url("../assets/Icons/house\ \(9\).svg");
     top: 30px;
     right: 30px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-#home-btn:active {
-    background-image: url("../assets/Icons/homeBEIGE.svg");
 }
 
 #back-btn {
     position: absolute;
-    background-image: url("../assets/Icons/backGREEN.svg");
+    background-image: url("../assets/Icons/arrow-left\ \(2\).svg");
     top: 30px;
     left: 30px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-#back-btn:active {
-    background-image: url("../assets/Icons/backGREEN.svg");
-}
-
 #login-btn {
-    width: 50%;
-    height: 15%;
     margin-top: 5%;
-    color: white;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #226d68;
+    padding: 2%;
+    width: 20%;
+    height: 20%;
+    border: 1px solid #44f2d2;
+    box-shadow: 2px 2px 15px white;
+    border-radius: 50%;
+    background-image: url("/Interface3Hackaton/assets/Icons/KeyWhite.svg");
+    background-size: 60%; /* Ajuste selon tes besoins */
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Media queries pour les tablettes et desktop */
@@ -121,6 +130,11 @@ input {
     #login-btn {
         max-width: 250px;
         font-size: 1.2em;
+    }
+    #home-btn,
+    #back-btn {
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -142,5 +156,10 @@ input {
     #login-btn {
         max-width: 250px;
         font-size: 1.3em;
+    }
+    #home-btn,
+    #back-btn {
+        width: 40px;
+        height: 40px;
     }
 }

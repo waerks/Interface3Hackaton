@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="./css/game.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
   <script src="./js/phaser.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game</title>
@@ -11,13 +14,12 @@
 
 <body>
   <a href="./login.html" id="back-btn"></a>
-
   <a href="./index.html" id="home-btn"></a>
 
-  <button id="start-btn">Start</button>
 
-  <!-- Conteneur pour le jeu -->
+  <div id="start-btn"></div>
   <div id="game-container"></div>
+
 
   <script>
     // Sélectionner les éléments HTML
@@ -28,6 +30,7 @@
     startBtn.addEventListener("click", function () {
       // Masquer le bouton "Start"
       startBtn.style.display = "none";
+      gameContainer.style.display = "block";
 
       // Démarrer le jeu
       startQuiz();
