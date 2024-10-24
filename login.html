@@ -1,11 +1,14 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/login.css" />
-    <script src="./js/phaser.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="js/phaser.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Login</title>
   </head>
 
@@ -16,43 +19,12 @@
       <h1>Login</h1>
       <p>Enregistrez-vous pour commencer le quiz</p>
       <div id="login-code">
-        <form id="loginForm" action="./loginTraitement.php" method="POST">
+        <form id="loginForm" action="loginTraitement.php" method="POST">
           <label for="user">Utilisateur</label>
-          <input type="text" id="user" name="user" placeholder="Entrez votre nom d'utilisateur" required />
+          <input type="text" id="user" name="nom" placeholder="Entrez votre nom d'utilisateur" required />
           <button id="login-btn" type="submit">Se connecter</button>
         </form>
       </div>
     </div>
-
-    <script>
-      // Sélectionner les éléments HTML
-      const loginPage = document.getElementById("login-page");
-      const loginBtn = document.getElementById("login-btn");
-
-      //Condition pour verifier si l'utilisateur existe dans la base de donnees
-      const userInput = document.getElementById("user");
-  // Utiliser fetch pour charger les utilisateurs depuis le fichier JSON
-      fetch('./assets/Data/users.json')
-          .then(response => response.json())  // Lire le fichier JSON
-          
-       // Parcourir la liste des utilisateurs pour voir si le nom d'utilisateur existe
-       for (let i = 0; i < users.length; i++) {
-              if (users[i].user === userInput.value) {
-                loginBtn.addEventListener("click", function (event) {
-                  event.preventDefault();
-                  window.location.href = "./game.html";
-                });
-              }
-            else {
-              // Si l'utilisateur n'existe pas, afficher une alerte
-              alert('Nom d\'utilisateur incorrect. Veuillez réessayer.');
-            }
-          
-      };
-        
-      // }
-      // Au click sur loginBtn -> on est redirigé sur le game.html pout débuter le quiz
-    
-    </script>
   </body>
 </html>

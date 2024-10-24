@@ -1,25 +1,46 @@
 <?php
-// prémiere ligne du script, pour accéder à la session
-session_start();
 
-// 1. Récuperer le nom $_POST['nom'] et l'email $_POST['email']
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = $_POST['user'];
-    //$email = $_POST['email'];
-// 2. Charger les utilisateurs existants
-    $users = json_decode(file_get_contents('users.json'), true);
-    
-// 3. Vérifier les informations de connexion
-    foreach ($users as $useri) {
-        if ($useri['user'] === $user) {
-            $_SESSION['user'] = $user;
-            echo "Connexion réussie!";
-            exit;
-        }
-    }
-    echo "Nom d'utilisateur incorrect!!";
+// Charger le fichier JSON contenant les utilisateurs
+$jsonFilePath = __DIR__ . '/assets/Data/users.json';
+
+if (!file_exists($jsonFilePath)) {
+    die('Le fichier users.json est introuvable.');
 }
 
+// Lire le fichier JSON
+$jsonData = file_get_contents($jsonFilePath);
+$users = json_decode($jsonData, true);
 
-// 4. Chercher le login dans la BD et obtenir son password
-// 5. Comparer le password reçu du formulaire avec le password de l'user obtenu de la BD
+if ($users === null) {
+    die('Erreur de lecture du fichier JSON.');
+}
+
+if (isset($_POST['nom'])) {
+    $nom = $_POST['nom'];
+} else {
+    $nom = null;
+}
+
+if (!$nom) {
+    die('Nom d\'utilisateur non fourni.');
+}
+
+// Vérifier si l'utilisateur existe
+$userFound = false;
+
+foreach ($users as $user) {
+    if ($user['nom'] === $nom) {
+        $userFound = true;
+        break;
+    }
+}
+
+if ($userFound) {
+    // Si l'utilisateur est trouvé, rediriger vers game.html
+    header('Location: game.html');
+    exit;
+} else {
+    // Si l'utilisateur n'est pas trouvé, retourner à la page de connexion avec un message d'erreur
+    echo "<script>alert('Nom d\'utilisateur incorrect. Veuillez réessayer.'); window.location.href = 'login.html';</script>";
+    exit;
+}
