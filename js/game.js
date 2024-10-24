@@ -51,16 +51,17 @@ function create() {
 
   // dessiner l'image de fond
   let backImage = this.add.image(0, 0, "background");
-  backImage.setOrigin(0, 0);
+  backImage.setOrigin(-0.25, 0);
   backImage.setScale(0.5);
+ 
 
   // dessiner l'image pour les questions
   let questionPanelImage = this.add.image(
-    config.width / 2,
+    config.width/2 ,
     100,
     "questionpanel"
   );
-  questionPanelImage.setScale(0.5);
+  questionPanelImage.setScale(0.3,0.25);
 
   // dessiner les 3 images pour les 3 réponses
   for (let i = 0; i < 3; i++) {
@@ -69,45 +70,45 @@ function create() {
       220 + 100 * i,
       "answerpanel"
     );
-    answerPanelImage[i].setScale(1.2, 0.8);
+    answerPanelImage[i].setScale(1, 0.75);
     answerPanelImage[i].on("pointerdown", () => {
       checkAnswer(i);
     });
   }
 
   // écrire la question
-  questionText = this.add.text(150, 80, "", {
-    fontFamily: "Arial",
+  questionText = this.add.text(200, 80, "", {
+    fontFamily: "Typewritten",
     fontSize: 18,
-    color: "#00ff00",
+    color: "#A7E0E0",
   });
 
   // écrire les 3 réponses
   for (let i = 0; i < 3; i++) {
-    answerText[i] = this.add.text(150, 200 + i * 100, "", {
-      fontFamily: "Arial",
-      fontSize: 18,
-      color: "#ffff00",
+    answerText[i] = this.add.text(200, 200 + i * 100, "", {
+      fontFamily: "Typewritten",
+      fontSize: 10,
+      color: "#BED3C3",
     });
     answerText[i].setVisible(false);
   }
 
   // dessiner le logo de départ
   logoImage = this.add.image(config.width / 2, 100, "logo");
-  logoImage.setScale(0.8);
+  logoImage.setScale(0.5);
 
   // dessiner le bouton pour question suivante
   nextQuestionImage = this.add
     .image(config.width / 2, 510, "nextquestion")
     .setInteractive();
   nextQuestionImage.on("pointerdown", nextQuestion);
-  nextQuestionImage.setScale(0.4);
+  nextQuestionImage.setScale(2);
   //nextQuestionImage.setVisible(false);
 
   // afficher 10 étoiles en bas de l'écran et on les rend invisible
   for (let i = 0; i < 10; i++) {
     starImage[i] = this.add.image(30 + i * 60, 600, "star");
-    starImage[i].setScale(0.25);
+    starImage[i].setScale(1);
     starImage[i].setVisible(false);
   }
 
@@ -120,12 +121,12 @@ function create() {
   for (let i = 0; i < 3; i++) {
     tweenGoodAnswerPanel[i] = this.tweens.add({
       targets: answerPanelImage[i],
-      scaleY: 1.2,
-      scaleX: 1.5,
+      scaleY: 0,
+      scaleX: 0,
       duration: 200,
       ease: "Power2",
       yoyo: true,
-      loop: 0,
+      loop: 1,
       paused: true,
     });
   }
@@ -154,10 +155,10 @@ function checkAnswer(answerNumber) {
     goodAnswerSound.play();
     tweenGoodAnswerPanel[answerNumber].play();
   } else {
-    answerPanelImage[answerNumber].tint = 0xff0000;
+    answerPanelImage[answerNumber].tint = 0xFFFFFF;
     starImage[questionIndex].alpha = 0.4;
     wrongAnswerSound.play();
-    tweenWrongAnswerPanel[answerNumber].play();
+    //tweenWrongAnswerPanel[answerNumber].play();
   }
 }
 
