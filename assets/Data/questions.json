@@ -1,254 +1,314 @@
 {
   "questions": [
-    {
-      "title": "Qu'est-ce que le Green IT ?",
-      "answer": [
-        "Un logiciel de gestion de l'énergie",
-        "Une démarche visant à réduire l'impact environnemental des technologies de l'information",
-        "Une norme de sécurité informatique"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quel est l'objectif principal du Green IT ?",
-      "answer": [
-        "Augmenter la vitesse des ordinateurs",
-        "Réduire l'empreinte écologique du numérique",
-        "Améliorer la connectivité internet"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quelle est la principale source de pollution dans le secteur IT ?",
-      "answer": [
-        "Le transport des composants",
-        "La production de matériel informatique (fabrication des composants électroniques)",
-        "Le recyclage des déchets électroniques"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quelle solution est la plus efficace pour réduire la consommation d'énergie des data centers ?",
-      "answer": [
-        "Remplacer les ordinateurs tous les 3 ans",
-        "Utiliser des systèmes de refroidissement écoénergétiques",
-        "Augmenter la taille des serveurs"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Qu'est-ce qu'une éco-conception dans le cadre du Green IT ?",
-      "answer": [
-        "Concevoir des logiciels plus rapides",
-        "Concevoir des applications accessibles à tous",
-        "Concevoir des produits et services numériques avec un impact environnemental réduit dès leur conception"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quelle proportion de l'électricité mondiale est consommée par les data centers ?",
-      "answer": ["1 %", "2 %", "5 %"],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quel est l'impact du stockage des données en ligne (cloud) sur l'environnement ?",
-      "answer": [
-        "Il n'a aucun impact",
-        "Il consomme moins d'énergie que le stockage local",
-        "Il consomme beaucoup d'énergie à cause des data centers"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quel type d'énergie est recommandé pour les data centers dans une approche Green IT ?",
-      "answer": [
-        "L'énergie renouvelable",
-        "L'énergie nucléaire",
-        "L'énergie fossile"
-      ],
-      "goodAnswer": 0
-    },
-    {
-      "title": "Quelle est la meilleure pratique pour prolonger la durée de vie des équipements informatiques ?",
-      "answer": [
-        "Réparer et réutiliser les équipements",
-        "Les jeter quand ils sont obsolètes",
-        "Changer de matériel chaque année"
-      ],
-      "goodAnswer": 0
-    },
-    {
-      "title": "Quel est le pourcentage de déchets électroniques (e-déchets) recyclés dans le monde ?",
-      "answer": ["50 %", "17 %", "80 %"],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quel est l’un des avantages de la virtualisation dans les infrastructures IT ?",
-      "answer": [
-        "Elle augmente les coûts d'infrastructure",
-        "Elle réduit la consommation d'énergie en optimisant l'utilisation des serveurs",
-        "Elle diminue la sécurité des systèmes"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quel comportement contribue à réduire l'empreinte énergétique de l'informatique ?",
-      "answer": [
-        "Laisser son ordinateur en veille toute la journée",
-        "Éteindre son ordinateur lorsqu’il n’est pas utilisé",
-        "Toujours utiliser les écrans les plus grands disponibles"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Comment l'impression peut-elle être rendue plus éco-responsable ?",
-      "answer": [
-        "Utiliser plus de couleurs",
-        "Utiliser du papier brillant",
-        "Utiliser du papier recyclé et limiter les impressions"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quel matériau est le plus couramment utilisé dans la fabrication des composants électroniques, et qui pose des défis environnementaux ?",
-      "answer": ["Le bois", "Le plastique", "Les métaux rares (terres rares)"],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quel est le terme utilisé pour désigner l’énergie consommée par les appareils électroniques lorsqu'ils sont en mode veille ?",
-      "answer": [
-        "Énergie active",
-        "Énergie fantôme (ou consommation en veille)",
-        "Énergie secondaire"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Que signifie l'acronyme \"D3E\" ?",
-      "answer": [
-        "Données et déchets électroniques",
-        "Déchets d'Équipements Électriques et Électroniques",
-        "Développement Durable et Énergies Environnementales"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quelle action peut réduire l'impact environnemental d'un site web ?",
-      "answer": [
-        "Réduire le poids des images et optimiser le code",
-        "Ajouter plus d'animations graphiques",
-        "Augmenter la fréquence des sauvegardes automatiques"
-      ],
-      "goodAnswer": 0
-    },
-    {
-      "title": "Quel est le meilleur format de fichier pour réduire la taille des images sur internet tout en maintenant une bonne qualité ?",
-      "answer": ["BMP", "PNG", "JPEG"],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quelle initiative peut aider à minimiser les déchets électroniques ?",
-      "answer": [
-        "Acheter du nouveau matériel chaque année",
-        "Importer du matériel de pays étrangers",
-        "Participer à des programmes de recyclage et de reconditionnement des appareils"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Comment une entreprise peut-elle promouvoir le Green IT auprès de ses employés ?",
-      "answer": [
-        "En interdisant l'accès à certains logiciels",
-        "En sensibilisant et formant les employés sur les pratiques responsables",
-        "En les encourageant à travailler plus vite"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quelle est l'une des méthodes pour améliorer l'efficacité énergétique des ordinateurs portables ?",
-      "answer": [
-        "Utiliser des chargeurs plus puissants",
-        "Augmenter la luminosité de l'écran",
-        "Activer les modes d'économie d'énergie et réduire la luminosité de l'écran"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quelle est la durée de vie moyenne d'un smartphone avant qu'il ne devienne obsolète ou inutilisable ?",
-      "answer": ["1 an", "2 à 3 ans", "5 ans"],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quelle technologie permet de réduire la consommation d'énergie dans un bureau en optimisant l'usage des appareils électroniques ?",
-      "answer": [
-        "L'utilisation de prises intelligentes (smart plugs)",
-        "L'augmentation de la climatisation",
-        "L'ajout de ventilateurs supplémentaires pour les ordinateurs"
-      ],
-      "goodAnswer": 0
-    },
-    {
-      "title": "Quelle pratique simple permet de réduire l'empreinte carbone lors de l'envoi de courriels ?",
-      "answer": [
-        "Augmenter la taille des pièces jointes",
-        "Envoyer des e-mails à plusieurs personnes même si ce n'est pas nécessaire",
-        "Limiter l'envoi de pièces jointes lourdes et supprimer les anciens e-mails inutiles"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quel impact environnemental a la blockchain en termes de Green IT ?",
-      "answer": [
-        "Une forte consommation d'énergie pour le minage et les transactions",
-        "Elle réduit l'utilisation d'énergie",
-        "Elle n'a pas d'impact significatif sur l'environnement"
-      ],
-      "goodAnswer": 0
-    },
-    {
-      "title": "Quelle est une des raisons pour lesquelles les smartphones sont difficiles à recycler ?",
-      "answer": [
-        "Ils sont souvent endommagés par l'eau",
-        "Ils contiennent trop de plastique",
-        "Ils contiennent des métaux rares et des composants difficiles à extraire"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Pourquoi l'optimisation du code informatique est-elle importante pour le Green IT ?",
-      "answer": [
-        "Pour rendre les logiciels plus coûteux",
-        "Pour rendre les logiciels plus complexes",
-        "Pour réduire la consommation d'énergie des serveurs et des appareils utilisateurs"
-      ],
-      "goodAnswer": 2
-    },
-    {
-      "title": "Quel est le rôle des \"labels verts\" dans le secteur informatique ?",
-      "answer": [
-        "Identifier les produits informatiques respectueux de l'environnement",
-        "Augmenter les coûts des produits technologiques",
-        "Garantir la vitesse des logiciels"
-      ],
-      "goodAnswer": 0
-    },
-    {
-      "title": "Comment les entreprises peuvent-elles réduire leur empreinte numérique avec le télétravail ?",
-      "answer": [
-        "En augmentant l'utilisation de vidéoconférences HD",
-        "En réduisant les déplacements physiques des employés et en optimisant les outils de collaboration à distance",
-        "En offrant plus d'ordinateurs aux employés"
-      ],
-      "goodAnswer": 1
-    },
-    {
-      "title": "Quel est l’avantage principal des serveurs modulaires dans une démarche Green IT ?",
-      "answer": [
-        "Ils sont plus coûteux mais plus puissants",
-        "Ils nécessitent plus d’énergie que les serveurs traditionnels",
-        "Ils sont plus efficaces énergétiquement et permettent d'ajuster les ressources selon les besoins"
-      ],
-      "goodAnswer": 2
-    }
-  ]
-}
+  
+      {
+        "title": "Qu'est-ce que le Green IT ?",
+        "answer": [
+          "Un logiciel",
+          "Une démarche environnementale",
+          "Une norme de sécurité"
+        ],
+        "goodAnswer": 1,
+        "explanation": " Le Green IT est une démarche visant à réduire l'impact environnemental des technologies de l’information "
+      },
+  
+      {
+        "title": "Quel est l'objectif principal du Green IT ?",
+        "answer": [
+          "Augmenter la vitesse",
+          "Réduire l'empreinte écologique",
+          "Améliorer la connexion"
+        ],
+        "goodAnswer": 1,
+        "explanation": "Son objectif principal est de réduire l’empreinte écologique du numérique" 
+      },
+  
+      {
+        "title": "Quelle est la principale source de pollution dans le secteur IT ?",
+        "answer": [
+          "Le transport des composants",
+          "La production de matériel informatique",
+          "Le recyclage des déchets"
+        ],
+        "goodAnswer": 1,
+        "explanation": " Sa principale source de pollution est la production des composants électronique" 
+      },
+  
+      {
+        "title": "Quelle solution est la plus efficace pour réduire la consommation d'énergie des data centers ?",
+        "answer": [
+          "Remplacer les ordinateurs tous les 3 ans",
+          "Utiliser des systèmes de refroidissement écoénergétiques",
+          "Augmenter la taille des serveurs"
+        ],
+        "goodAnswer": 1,
+        "explanation": "Un bon système de refroidissement pour votre ordinateur lui permet de faire de meilleures performances et participe à sa durée de vie" 
+      },
+  
+      {
+        "title": "Qu'est-ce qu'une éco-conception dans le cadre du Green IT ?",
+        "answer": [
+          "Faire des logiciels plus rapides",
+          "Faire des applications plus accessibles",
+          "Concevoir des produits et services ayant un impact environnemental moindre"
+        ],
+        "goodAnswer": 2,
+        "explanation": " L’éco-conception vise à proposer des produits et services numériques avec un impact environnemental réduit dès leur conception " 
+      },
+  
+      {
+        "title": "Quelle proportion de l'électricité mondiale est consommée par les data centers ?",
+        "answer": ["1 %", "2 %", "5 %"],
+        "goodAnswer": 1,
+        "explanation": "" 
+      },
+  
+      {
+        "title": "Quel est l'impact du stockage des données en ligne (cloud) sur l'environnement ?",
+        "answer": [
+          "Il n'y en a pas ",
+          "Il consomme moins d'énergie que le stockage local",
+          "Il consomme beaucoup d'énergie à cause des data centers"
+        ],
+        "goodAnswer": 2,
+        "explanation": "Les data centers ont une consommation de 4% de l’électricité à l’échelle mondiale et 1% des émissions des gaz à effet de serre sur la planète" 
+      },
+  
+      {
+        "title": "Quel type d'énergie est recommandé pour les data centers dans une approche Green IT ?",
+        "answer": [
+          "Renouvelable",
+          "Nucléaire",
+          "Fossile"
+        ],
+        "goodAnswer": 0,
+        "explanation": "" 
+      },
+  
+      {
+        "title": "Quelle est la meilleure pratique pour prolonger la durée de vie des équipements informatiques ?",
+        "answer": [
+          "Réparer et réutiliser les équipements",
+          "Les jeter quand ils sont obsolètes",
+          "Changer de matériel chaque année"
+        ],
+        "goodAnswer": 0,
+        "explanation": "Un bon entretien de son matériel informatique est primordial pour sa durabilité et son bon fonctionnement" 
+      },
+  
+      {
+        "title": "Quel est le pourcentage de déchets électroniques (e-déchets) recyclés dans le monde ?",
+        "answer": ["50 %", "17 %", "80 %"],
+        "goodAnswer": 1,
+        "explanation": "En 2019, on estimait à 17% de déchets électronique recyclés" 
+      },
+  
+      {
+        "title": "Quel est l’un des avantages de la virtualisation dans les infrastructures IT ?",
+        "answer": [
+          "Augmente des coûts d'infrastructure",
+          "Réduction de la consommation d'énergie",
+          "Diminution de la sécurité des systèmes"
+        ],
+        "goodAnswer": 1,
+        "explanation": "L’ un des avantages à cette virtualisation est la réduction de la consommation d’énergie en optimisant l’utilisation des serveurs" 
+      },
+  
+      {
+        "title": "Quel comportement contribue à réduire l'empreinte énergétique de l'informatique ?",
+        "answer": [
+          "Laisser son ordinateur en veille toute la journée",
+          "Éteindre son ordinateur lorsqu’il n’est pas utilisé",
+          "Toujours utiliser les écrans les plus grands disponibles"
+        ],
+        "goodAnswer": 1,
+        "explanation": "L’arrêt de votre ordinateur réduit sa consommation à zéro puisque l’appareil n’est plus sous tension" 
+      },
+  
+      {
+        "title": "Comment l'impression peut-elle être rendue plus éco-responsable ?",
+        "answer": [
+          "Utiliser plus de couleurs",
+          "Utiliser du papier brillant",
+          "Utiliser du papier recyclé et limiter les impressions"
+        ],
+        "goodAnswer": 2,
+        "explanation": "Le recyclage du papier permet d'éviter chaque année l'émission de près de 390 000 tonnes de CO²" 
+      },
+  
+      {
+        "title": "Quel matériau est le plus couramment utilisé dans la fabrication des composants électroniques, et qui pose des défis environnementaux ?",
+        "answer": ["Le bois", "Le plastique", "Les métaux rares (terres rares)"],
+        "goodAnswer": 2,
+        "explanation": "La transition verte n’est pas possible sans les terres rares ; elles sont au nombre de 17 et sont cependant difficiles à extraire" 
+      },
+  
+      {
+        "title": "Quel est le terme utilisé pour désigner l’énergie consommée par les appareils électroniques lorsqu'ils sont en mode veille ?",
+        "answer": [
+          "Énergie active",
+          "Énergie fantôme",
+          "Énergie secondaire"
+        ],
+        "goodAnswer": 1,
+        "explanation": "Même un appareil en veille consomme de l’énergie -qu’on appelle « fantôme » ; pensez donc à débrancher ce que vous n’utilisez pas (cafetière, tv, etc. …)" 
+      },
+  
+      {
+        "title": "Que signifie l'acronyme \"D3E\" ?",
+        "answer": [
+          "Données et déchets électroniques",
+          "Déchets d'Équipements Électriques et Électroniques",
+          "Développement Durable et Énergies Environnementales"
+        ],
+        "goodAnswer": 1,
+        "explanation": "D3E désigne tout appareil en fin de vie ; ces déchets sont sources de matières premières récupérables " 
+      },
+  
+      {
+        "title": "Quelle action peut réduire l'impact environnemental d'un site web ?",
+        "answer": [
+          "Réduire le poids des images et optimiser le code",
+          "Ajouter plus d'animations graphiques",
+          "Augmenter la fréquence des sauvegardes automatiques"
+        ],
+        "goodAnswer": 0,
+        "explanation": "Si on veut réduire son impact sur l’environnement, garder une cohérence dans la taille et le format des images, et optimiser son code en évitant les répétions (dans le CSS par exemple) est le geste à prendre"
+      },
+  
+      {
+        "title": "Quel est le meilleur format de fichier pour réduire la taille des images sur internet tout en maintenant une bonne qualité ?",
+        "answer": ["BMP", "PNG", "JPEG"],
+        "goodAnswer": 2,
+        "explanation": "Le JPEG permet en effet un meilleur rendu grâce à son large panel de couleurs (16,7 millions) et offre une qualité parfaite et un poids optimal pour le web" 
+      },
+  
+      {
+        "title": "Quelle initiative peut aider à minimiser les déchets électroniques ?",
+        "answer": [
+          "Achat de nouveau matériel chaque année",
+          "Import de matériel de pays étrangers",
+          "Recycler et reconditionner les appareils"
+        ],
+        "goodAnswer": 2,
+        " explanation": "Cette initiative permet entre-autre d’économiser des ressources, de préserver la planète et de créer des emplois" 
+      },
+  
+      {
+        "title": "Comment une entreprise peut-elle promouvoir le Green IT auprès de ses employés ?",
+        "answer": [
+          "Interdire l'accès à certains logiciels",
+          "Sensibiliser et former",
+          "Les encourager à travailler plus vite"
+        ],
+        "goodAnswer": 1,
+        "explanation": "Le meilleur moyen de promouvoir le Green IT est de sensibiliser et de former les employés aux pratiques responsables" 
+      },
+  
+      {
+        "title": "Quelle est l'une des méthodes pour améliorer l'efficacité énergétique des ordinateurs portables ?",
+        "answer": [
+          "Des chargeurs plus puissants",
+          "Augmenter la luminosité de l'écran",
+          "Mode d'économie d'énergie et réduire la luminosité de l'écran"
+        ],
+        "goodAnswer": 2,
+        "explanation": "" 
+      },
+  
+      {
+        "title": "Quelle est la durée de vie moyenne d'un smartphone avant qu'il ne devienne obsolète ou inutilisable ?",
+        "answer": ["1 an", "2 à 3 ans", "5 ans"],
+        "goodAnswer": 1,
+        " explanation": "" 
+      },
+  
+      {
+        "title": "Quelle technologie permet de réduire la consommation d'énergie dans un bureau en optimisant l'usage des appareils électroniques ?",
+        "answer": [
+          "Les prises intelligentes (smart plugs)",
+          "L'augmentation de la climatisation",
+          "L'ajout de ventilateurs supplémentaires pour les ordinateurs"
+        ],
+        "goodAnswer": 0,
+        "explanation": "Un smart plug s’installe entre les cordons d'alimentation et les prises pour fonctionner comme un interrupteur d'alimentation télécommandé." 
+      },
+  
+      {
+        "title": "Quelle pratique simple permet de réduire l'empreinte carbone lors de l'envoi de courriels ?",
+        "answer": [
+          "Augmenter la taille des pièces jointes",
+          "Envoyer des mails à plusieurs personnes même si ce n'est pas nécessaire",
+          "Limiter l'envoi de pièces jointes lourdes et supprimer les anciens mails inutiles"
+        ],
+        "goodAnswer": 2,
+        " explanation": "" 
+      },
+  
+      {
+        "title": "Quel impact environnemental a la blockchain en termes de Green IT ?",
+        "answer": [
+          "Une forte consommation d'énergie pour le minage et les transactions",
+          "Elle réduit l'utilisation d'énergie",
+          "Elle n'a pas d'impact significatif sur l'environnement"
+        ],
+        "goodAnswer": 0,
+        "explanation": "" 
+      },
+  
+      {
+        "title": "Quelle est une des raisons pour lesquelles les smartphones sont difficiles à recycler ?",
+        "answer": [
+          "Ils sont souvent endommagés par l'eau",
+          "Ils contiennent trop de plastique",
+          "Ils contiennent des métaux rares et des composants difficiles à extraire"
+        ],
+        "goodAnswer": 2,
+        "explanation": ""
+      },
+  
+      {
+        "title": "Pourquoi l'optimisation du code informatique est-elle importante pour le Green IT ?",
+        "answer": [
+          "Ça rend les logiciels plus coûteux",
+          "Ça rend les logiciels plus complexes",
+          "Ça réduit la consommation d'énergie des serveurs et des appareils utilisateurs"
+        ],
+        "goodAnswer": 2,
+        "explanation": "" 
+      },
+  
+      {
+        "title": "Quel est le rôle des \"labels verts\" dans le secteur informatique ?",
+        "answer": [
+          "Identifier les produits informatiques respectueux de l'environnement",
+          "Augmenter les coûts des produits technologiques",
+          "Garantir la vitesse des logiciels"
+        ],
+        "goodAnswer": 0,
+        "explanation": "" 
+      },
+  
+      {
+        "title": "Comment les entreprises peuvent-elles réduire leur empreinte numérique avec le télétravail ?",
+        "answer": [
+          "En augmentant l'utilisation de vidéoconférences HD",
+          "En optimisant les outils de collaboration à distance",
+          "En offrant plus d'ordinateurs aux employés"
+        ],
+        "goodAnswer": 1,
+        "explanation": "Les entreprises optimisent leurs outils de collaboration à distance et réduisent ainsi les déplacements des employés, et, de ce fait leur emprunte carbone " 
+      },
+  
+      {
+        "title": "Quel est l’avantage principal des serveurs modulaires dans une démarche Green IT ?",
+        "answer": [
+          "Coûteux mais plus puissant",
+          "Plus d’énergie qu’un serveur traditionnel",
+          "Plus efficace énergétiquement"
+        ],
+        "goodAnswer": 2,
+        "explanation": "Les serveurs modulaires sont plus efficaces énergiquement et permettent aussi d’ajuster les ressources au besoin" 
+      }
+    ]
+  }
