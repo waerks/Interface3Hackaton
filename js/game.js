@@ -51,7 +51,7 @@ function preload() {
         .image('restart', './assets/Sprites/Restart.png');
     this
         .load
-        .image('logo', './assets/Sprites/Quiz1.png');
+        .image('logo', './assets/Sprites/logo.png');
 
     this
         .load
@@ -123,8 +123,8 @@ function create() {
         .add
         .text(config.width / 2, config.height * 0.1, "", {
             fontFamily: 'Arial',
-            fontSize: 14,
-            color: '#00ff00'
+            fontSize: 21,
+            color: 'white'
         })
         .setOrigin(0.5, 0.5);
 
@@ -149,8 +149,8 @@ function create() {
             .add
             .text(config.width / 2, yPosition, "", {
                 fontFamily: 'Arial',
-                fontSize: 14,
-                color: '#ffff00'
+                fontSize: 18,
+                color: 'aqua'
             })
             .setOrigin(0.5, 0.5);
         answerText[i].setVisible(false);
