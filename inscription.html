@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/inscription.css" />
-    <script src="./js/phaser.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/inscription.css" />
+    <script src="/js/phaser.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inscription</title>
 </head>
@@ -17,16 +17,16 @@
         <h1>Inscription</h1>
         <p>Inscrivez-vous pour commencer le quiz</p>
         <div id="inscription-code">
-            <form id="inscriptionForm">
+            <form id="inscriptionForm" action="./inscriptionTraitement.php" method="POST">
                 <label for="user">Utilisateur</label>
-                <input type="text" id="user" name="user" placeholder="Entrez votre nom d'utilisateur" required />
+                <input type="text" id="user" name="nom" placeholder="Entrez votre nom d'utilisateur" required />
                 <input type="email" id="email" name="email" placeholder="Entrez votre email" required />
                 <button id="inscription-btn" type="submit">S'inscrire</button>
             </form>
         </div>
     </div>
 
-    <script>
+    <!-- <script>
         // Sélectionner les éléments HTML
         const inscriptionPage = document.getElementById("inscription-page");
         const inscriptionBtn = document.getElementById("inscription-btn");
@@ -36,7 +36,7 @@
             event.preventDefault();
             window.location.href = "./login.html";
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

@@ -22,5 +22,17 @@
     {
         "nom": "Anna",
         "email": "anna@gmail.com"
+    },
+    {
+        "nom": "blanc",
+        "email": "blanc@gmail.com"
+    },
+    {
+        "nom": "Lidia",
+        "email": "lidia@gmail.com"
+    },
+    {
+        "nom": "Mario",
+        "email": "mario@gmail.com"
     }
 ]
