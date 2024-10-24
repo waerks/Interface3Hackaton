@@ -45,7 +45,7 @@ p {
 
 #loginForm {
     width: 80%;
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -59,8 +59,9 @@ label {
 
 input {
     width: 100%;
+    max-width: 200px;
     height: 15%;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
     border-radius: 5px;
     border: 1px solid white;
     box-shadow: 2px 2px 10px #44f2d2;
@@ -107,11 +108,12 @@ input {
     padding: 2%;
     width: 20%;
     height: 20%;
+    max-width: 50px;
     border: 1px solid #44f2d2;
     box-shadow: 2px 2px 15px white;
     border-radius: 50%;
     background-image: url("/Interface3Hackaton/assets/Icons/KeyWhite.svg");
-    background-size: 60%; /* Ajuste selon tes besoins */
+    background-size: 40%; /* Ajuste selon tes besoins */
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -123,13 +125,13 @@ input {
     }
 
     input {
-        max-width: 400px;
+        max-width: 200px;
         font-size: 1em;
     }
 
     #login-btn {
-        max-width: 250px;
-        font-size: 1.2em;
+        background-size: 40%;
+        max-width: 50px;
     }
     #home-btn,
     #back-btn {
@@ -149,13 +151,13 @@ input {
     }
 
     input {
-        max-width: 400px;
+        max-width: 200px;
         font-size: 1.2em;
     }
 
     #login-btn {
-        max-width: 250px;
-        font-size: 1.3em;
+        background-size: 40%;
+        max-width: 50px;
     }
     #home-btn,
     #back-btn {

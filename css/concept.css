@@ -16,6 +16,7 @@ h1 {
     font-size: 1.8em;
     color: #44f2d2;
     text-shadow: 2px 2px 10px white;
+    letter-spacing: 2px;
 }
 
 #btns {
@@ -25,13 +26,14 @@ h1 {
 }
 
 #concept-content {
-    padding: 15px;
+    padding: 25px;
 }
 
 h3 {
     font-size: 1.3em;
     margin-top: 20px;
     color: #2b9380;
+    letter-spacing: 1px;
 }
 
 p {

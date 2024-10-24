@@ -9,59 +9,65 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4f4f9;
+    background: rgb(25, 60, 64);
+    background: linear-gradient(0deg, rgba(25, 60, 64, 1) 32%, rgba(27, 89, 78, 1) 100%);
 }
 
 h1 {
     font-size: 2em;
-    color: #333;
     margin-bottom: 20px;
     text-align: center;
+    color: #44f2d2;
+    text-shadow: 1px 2px 5px white;
+    letter-spacing: 2px;
 }
 
 p {
-    font-size: 1em;
-    color: #555;
+    font-size: 1.1em;
     margin-bottom: 30px;
     text-align: center;
+    letter-spacing: 1px;
 }
 
-#login-page {
-    width: 90%;
-    max-width: 400px;
-    background-color: white;
+#list-scores {
+    width: 70%;
+    height: 60%;
+    color: #2b9380;
+    border: 1px solid #44f2d2;
+    box-shadow: 2px 2px 20px white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-label {
-    font-size: 1em;
-    margin-bottom: 10px;
-    color: #333;
+table {
+    width: 100%;
+    height: 80%;
+    text-align: center;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+td {
+    color: white;
     font-size: 1em;
-    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+th {
+    margin-bottom: 5%;
+    padding: 5%;
+  
 }
 
 #home-btn {
     position: absolute;
-    background-image: url("../assets/Icons/homeGREEN.svg");
-    top: 10px;
-    right: 10px;
+    background-image: url("../assets/Icons/house\ \(9\).svg");
+    top: 30px;
+    right: 30px;
     padding: 10px 15px;
     cursor: pointer;
     width: 30px;
@@ -71,12 +77,9 @@ input {
     background-position: center;
 }
 
-#home-btn:active {
-    background-image: url("../assets/Icons/homeBEIGE.svg");
-}
 #back-btn {
     position: absolute;
-    background-image: url("../assets/Icons/backGREEN.svg");
+    background-image: url("../assets/Icons/arrow-left\ \(2\).svg");
     top: 30px;
     left: 30px;
     padding: 10px 15px;
@@ -88,28 +91,20 @@ input {
     background-position: center;
 }
 
-#back-btn:active {
-    background-image: url("../assets/Icons/backBEIGE.svg");
-}
-
 /* Media queries pour les tablettes et desktop */
 @media (min-width: 768px) {
-    #login-page {
-        width: 50%;
-        padding: 30px;
-    }
-
     h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
 
     input {
-        font-size: 1.1em;
+        max-width: 400px;
+        font-size: 1em;
     }
 
-    button {
-        font-size: 1.5em;
-        padding: 15px 30px;
+    #login-btn {
+        max-width: 250px;
+        font-size: 1.2em;
     }
     #home-btn,
     #back-btn {
@@ -120,26 +115,22 @@ input {
 
 /* Pour les écrans de bureau (desktop) */
 @media (min-width: 1024px) {
-    #login-page {
-        width: 35%;
-    }
-
     h1 {
-        font-size: 3em;
-    }
-
-    input {
-        font-size: 1.2em;
-    }
-
-    button {
-        font-size: 1.3em;
-        padding: 16px;
+        font-size: 2.4em;
     }
 
     #home-btn {
-        font-size: 1.1em;
         padding: 14px 20px;
+    }
+
+    input {
+        max-width: 400px;
+        font-size: 1.2em;
+    }
+
+    #login-btn {
+        max-width: 250px;
+        font-size: 1.3em;
     }
     #home-btn,
     #back-btn {

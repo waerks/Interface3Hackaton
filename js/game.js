@@ -16,6 +16,7 @@ let config = {
 let game = new Phaser.Game(config);
 let questionIndex = -1;
 let questions;
+let shuffledQuestions; // Ajouter une variable pour les questions mélangées
 let answerPanelImage = [];
 let tweenGoodAnswerPanel = [];
 let tweenWrongAnswerPanel = [];
@@ -25,6 +26,7 @@ let nextQuestionImage, logoImage;
 let questionText;
 let answerText = [];
 let restartImage;
+const totalQuestions = 5; // Limiter à 5 questions
 
 function preload() {
   this.load.image("background", "./assets/Sprites/background.png");
@@ -42,47 +44,42 @@ function preload() {
 }
 
 function create() {
-  // construire l'objet questions à partir du JSON
+  // Construire l'objet questions à partir du JSON
   questions = this.cache.json.get("questions").questions;
 
-  // préparer les sons :
+  // Mélanger les questions aléatoirement
+  shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions); // Mélanger et prendre seulement 5 questions
+
+  // Préparer les sons
   goodAnswerSound = this.sound.add("goodsound");
   wrongAnswerSound = this.sound.add("wrongsound");
 
-  // dessiner l'image de fond
+  // Dessiner l'image de fond
   let backImage = this.add.image(0, 0, "background");
   backImage.setOrigin(0, 0);
   backImage.setScale(0.5);
 
-  // dessiner l'image pour les questions
-  let questionPanelImage = this.add.image(
-    config.width / 2,
-    100,
-    "questionpanel"
-  );
+  // Dessiner l'image pour les questions
+  let questionPanelImage = this.add.image(config.width / 2, 100, "questionpanel");
   questionPanelImage.setScale(0.5);
 
-  // dessiner les 3 images pour les 3 réponses
+  // Dessiner les 3 images pour les réponses
   for (let i = 0; i < 3; i++) {
-    answerPanelImage[i] = this.add.image(
-      config.width / 2,
-      220 + 100 * i,
-      "answerpanel"
-    );
+    answerPanelImage[i] = this.add.image(config.width / 2, 220 + 100 * i, "answerpanel");
     answerPanelImage[i].setScale(1.2, 0.8);
     answerPanelImage[i].on("pointerdown", () => {
       checkAnswer(i);
     });
   }
 
-  // écrire la question
+  // Écrire la question
   questionText = this.add.text(150, 80, "", {
     fontFamily: "Arial",
     fontSize: 18,
     color: "#00ff00",
   });
 
-  // écrire les 3 réponses
+  // Écrire les 3 réponses
   for (let i = 0; i < 3; i++) {
     answerText[i] = this.add.text(150, 200 + i * 100, "", {
       fontFamily: "Arial",
@@ -92,20 +89,17 @@ function create() {
     answerText[i].setVisible(false);
   }
 
-  // dessiner le logo de départ
+  // Dessiner le logo de départ
   logoImage = this.add.image(config.width / 2, 100, "logo");
   logoImage.setScale(0.8);
 
-  // dessiner le bouton pour question suivante
-  nextQuestionImage = this.add
-    .image(config.width / 2, 510, "nextquestion")
-    .setInteractive();
+  // Dessiner le bouton pour question suivante
+  nextQuestionImage = this.add.image(config.width / 2, 510, "nextquestion").setInteractive();
   nextQuestionImage.on("pointerdown", nextQuestion);
   nextQuestionImage.setScale(0.4);
-  //nextQuestionImage.setVisible(false);
 
-  // afficher 10 étoiles en bas de l'écran et on les rend invisible
-  for (let i = 0; i < 10; i++) {
+  // Afficher 5 étoiles en bas de l'écran et les rendre invisibles
+  for (let i = 0; i < totalQuestions; i++) {
     starImage[i] = this.add.image(30 + i * 60, 600, "star");
     starImage[i].setScale(0.25);
     starImage[i].setVisible(false);
@@ -116,7 +110,7 @@ function create() {
   restartImage.on("pointerdown", restart);
   restartImage.setVisible(false);
 
-  // créer une animation sur un panel
+  // Créer une animation sur un panel
   for (let i = 0; i < 3; i++) {
     tweenGoodAnswerPanel[i] = this.tweens.add({
       targets: answerPanelImage[i],
@@ -148,8 +142,8 @@ function checkAnswer(answerNumber) {
   }
   nextQuestionImage.setVisible(true);
   starImage[questionIndex].setVisible(true);
-  answerPanelImage[questions[questionIndex].goodAnswer].tint = 0x22ff22;
-  if (answerNumber == questions[questionIndex].goodAnswer) {
+  answerPanelImage[shuffledQuestions[questionIndex].goodAnswer].tint = 0x22ff22;
+  if (answerNumber == shuffledQuestions[questionIndex].goodAnswer) {
     score += 1;
     goodAnswerSound.play();
     tweenGoodAnswerPanel[answerNumber].play();
@@ -167,11 +161,11 @@ function nextQuestion() {
   for (let i = 0; i < 3; i++) {
     answerPanelImage[i].setInteractive();
   }
-  if (questionIndex < 5) {
-    questionText.text = questions[questionIndex].title;
+  if (questionIndex < totalQuestions) {
+    questionText.text = shuffledQuestions[questionIndex].title;
     for (let i = 0; i < 3; i++) {
       answerText[i].setVisible(true);
-      answerText[i].text = questions[questionIndex].answer[i];
+      answerText[i].text = shuffledQuestions[questionIndex].answer[i];
       answerPanelImage[i].tint = 0xffffff;
     }
   } else {
@@ -179,34 +173,39 @@ function nextQuestion() {
       answerPanelImage[i].setVisible(false);
       answerText[i].setVisible(false);
     }
-    questionText.text = "Votre score est de " + score + " / 10";
+    questionText.text = "Votre score est de " + score + " / 5";
     restartImage.setVisible(true);
-
   }
   nextQuestionImage.setVisible(false);
 }
 
 function restart() {
-  // faire disparaitre le bouton restart
   restartImage.setVisible(false);
 
-  // score et index à zéro
   score = 0;
   questionIndex = 0;
 
-  // faire disparaitre les étoiles
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < totalQuestions; i++) {
     starImage[i].setVisible(false);
     starImage[i].alpha = 1;
   }
 
-  // faire réparaitre les panels dans leur couleur d'origine
-  // et les textes avec la première question
+  shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions); // Mélanger les questions à nouveau
+
   for (let i = 0; i < 3; i++) {
     answerPanelImage[i].setVisible(true);
     answerPanelImage[i].tint = 0xffffff;
-    answerText[i].text = questions[questionIndex].answer[i];
+    answerText[i].text = shuffledQuestions[questionIndex].answer[i];
     answerText[i].setVisible(true);
   }
-  questionText.text = questions[questionIndex].title;
+  questionText.text = shuffledQuestions[questionIndex].title;
+}
+
+// Fonction pour mélanger un tableau
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // Échange
+  }
+  return array;
 }
