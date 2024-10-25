@@ -19,6 +19,7 @@ let config = {
 let game = new Phaser.Game(config);
 let questionIndex = -1;
 let questions;
+let shuffledQuestions; // Ajouter une variable pour les questions mélangées
 let answerPanelImage = [];
 let starImage = [];
 let score = 0;
@@ -29,6 +30,7 @@ let answerText = [];
 let restartImage;
 let wowText;
 let initialAnswerTextPositions = [];
+const totalQuestions = 5; // Limiter à 5 questions
 
 function preload() {
     this
@@ -71,6 +73,10 @@ function create() {
         .json
         .get('questions')
         .questions;
+
+	// Mélanger les questions aléatoirement
+	shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions); // Mélanger et prendre seulement 5 questions
+
     goodAnswerSound = this
         .sound
         .add('goodsound');
@@ -311,6 +317,9 @@ function restart() {
         starImage[i].setVisible(false);
         starImage[i].alpha = 1;
     }
+
+	shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions); // Mélanger les questions à nouveau
+
     for (let i = 0; i < 3; i++) {
         answerPanelImage[i].setVisible(true);
         answerPanelImage[i].tint = 0xFFFFFF;
@@ -319,3 +328,12 @@ function restart() {
     }
     questionText.text = questions[questionIndex].title;
 }
+
+// Fonction pour mélanger un tableau
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+	  const j = Math.floor(Math.random() * (i + 1));
+	  [array[i], array[j]] = [array[j], array[i]]; // Échange
+	}
+	return array;
+  }
