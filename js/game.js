@@ -1,8 +1,8 @@
 let config = {
   type: Phaser.AUTO,
-  width: window.innerWidth,  // Largeur adaptative
-  height: window.innerHeight, // Hauteur adaptative
-  parent: "game-container", // Lien avec le conteneur de jeu
+  width: window.innerWidth,
+  height: window.innerHeight,
+  parent: "game-container",
   physics: {
     default: "arcade",
   },
@@ -16,7 +16,7 @@ let config = {
 let game = new Phaser.Game(config);
 let questionIndex = -1;
 let questions;
-let shuffledQuestions; // Ajouter une variable pour les questions mélangées
+let shuffledQuestions;
 let answerPanelImage = [];
 let tweenGoodAnswerPanel = [];
 let tweenWrongAnswerPanel = [];
@@ -26,7 +26,12 @@ let nextQuestionImage, logoImage;
 let questionText;
 let answerText = [];
 let restartImage;
-const totalQuestions = 5; // Limiter à 5 questions
+const totalQuestions = 5;
+
+// Nouvelle variable pour l'image animée
+let animatedImage;
+let imageYPosition;  // Position Y de l'image animée
+const stepHeight = config.height / 5;  // Hauteur de déplacement (1/5 de la hauteur)
 
 function preload() {
   this.load.image("background", "./assets/Sprites/background.png");
@@ -37,6 +42,9 @@ function preload() {
   this.load.image("restart", "./assets/Sprites/Restart.png");
   this.load.image("logo", "./assets/Sprites/Quiz1.png");
 
+  // Charger l'image animée
+  this.load.image("animatedImage", "./assets/Sprites/animatedImage.png");
+
   this.load.audio("goodsound", "./assets/Sound/good.wav");
   this.load.audio("wrongsound", "./assets/Sound/wrong.wav");
 
@@ -44,26 +52,19 @@ function preload() {
 }
 
 function create() {
-  // Construire l'objet questions à partir du JSON
   questions = this.cache.json.get("questions").questions;
+  shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
 
-  // Mélanger les questions aléatoirement
-  shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions); // Mélanger et prendre seulement 5 questions
-
-  // Préparer les sons
   goodAnswerSound = this.sound.add("goodsound");
   wrongAnswerSound = this.sound.add("wrongsound");
 
-  // Dessiner l'image de fond
   let backImage = this.add.image(0, 0, "background");
   backImage.setOrigin(0, 0);
   backImage.setScale(0.5);
 
-  // Dessiner l'image pour les questions
   let questionPanelImage = this.add.image(config.width / 2, 100, "questionpanel");
   questionPanelImage.setScale(0.5);
 
-  // Dessiner les 3 images pour les réponses
   for (let i = 0; i < 3; i++) {
     answerPanelImage[i] = this.add.image(config.width / 2, 220 + 100 * i, "answerpanel");
     answerPanelImage[i].setScale(1.2, 0.8);
@@ -72,14 +73,12 @@ function create() {
     });
   }
 
-  // Écrire la question
   questionText = this.add.text(150, 80, "", {
     fontFamily: "Arial",
     fontSize: 18,
     color: "#00ff00",
   });
 
-  // Écrire les 3 réponses
   for (let i = 0; i < 3; i++) {
     answerText[i] = this.add.text(150, 200 + i * 100, "", {
       fontFamily: "Arial",
@@ -89,28 +88,23 @@ function create() {
     answerText[i].setVisible(false);
   }
 
-  // Dessiner le logo de départ
   logoImage = this.add.image(config.width / 2, 100, "logo");
   logoImage.setScale(0.8);
 
-  // Dessiner le bouton pour question suivante
   nextQuestionImage = this.add.image(config.width / 2, 510, "nextquestion").setInteractive();
   nextQuestionImage.on("pointerdown", nextQuestion);
   nextQuestionImage.setScale(0.4);
 
-  // Afficher 5 étoiles en bas de l'écran et les rendre invisibles
   for (let i = 0; i < totalQuestions; i++) {
     starImage[i] = this.add.image(30 + i * 60, 600, "star");
     starImage[i].setScale(0.25);
     starImage[i].setVisible(false);
   }
 
-  // Ajouter le bouton Restart
   restartImage = this.add.image(300, 350, "restart").setInteractive();
   restartImage.on("pointerdown", restart);
   restartImage.setVisible(false);
 
-  // Créer une animation sur un panel
   for (let i = 0; i < 3; i++) {
     tweenGoodAnswerPanel[i] = this.tweens.add({
       targets: answerPanelImage[i],
@@ -134,6 +128,11 @@ function create() {
       paused: true,
     });
   }
+
+  // Initialiser l'image animée en bas de l'écran
+  imageYPosition = config.height + stepHeight;  // Départ sous l'écran
+  animatedImage = this.add.image(config.width / 2, imageYPosition, "animatedImage");
+  animatedImage.setScale(0.23); // Adapter l'échelle si nécessaire
 }
 
 function checkAnswer(answerNumber) {
@@ -147,12 +146,22 @@ function checkAnswer(answerNumber) {
     score += 1;
     goodAnswerSound.play();
     tweenGoodAnswerPanel[answerNumber].play();
+    // Monter l'image de 1/5
+    imageYPosition -= stepHeight;
   } else {
     answerPanelImage[answerNumber].tint = 0xff0000;
     starImage[questionIndex].alpha = 0.4;
     wrongAnswerSound.play();
     tweenWrongAnswerPanel[answerNumber].play();
+    // Descendre l'image de 1/5
+    const initialYPosition = config.height + stepHeight; // Position initiale de l'image en Y
+    if (imageYPosition + stepHeight <= initialYPosition) {
+      imageYPosition += stepHeight;
+    }
   }
+
+  // Appliquer la nouvelle position Y de l'image
+  animatedImage.setY(imageYPosition);
 }
 
 function nextQuestion() {
@@ -173,15 +182,19 @@ function nextQuestion() {
       answerPanelImage[i].setVisible(false);
       answerText[i].setVisible(false);
     }
-    questionText.text = "Votre score est de " + score + " / 5";
+    questionText.text = "Votre score est de " + score + " / " + totalQuestions;
     restartImage.setVisible(true);
+
+    // Rediriger vers scores.html après 3 secondes
+    setTimeout(() => {
+      window.location.href = "scores.html";
+    }, 3000);
   }
   nextQuestionImage.setVisible(false);
 }
 
 function restart() {
   restartImage.setVisible(false);
-
   score = 0;
   questionIndex = 0;
 
@@ -190,7 +203,7 @@ function restart() {
     starImage[i].alpha = 1;
   }
 
-  shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions); // Mélanger les questions à nouveau
+  shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
 
   for (let i = 0; i < 3; i++) {
     answerPanelImage[i].setVisible(true);
@@ -199,13 +212,16 @@ function restart() {
     answerText[i].setVisible(true);
   }
   questionText.text = shuffledQuestions[questionIndex].title;
+
+  // Réinitialiser la position de l'image animée
+  imageYPosition = config.height + stepHeight;
+  animatedImage.setY(imageYPosition);
 }
 
-// Fonction pour mélanger un tableau
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // Échange
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 }
