@@ -6,8 +6,6 @@ window.onload = function() {
   const score = localStorage.getItem('score');
 
   if (score !== null) {
-    document.getElementById('score-display').textContent = "Votre score est de " + score + " / 10";
-    
     // Sauvegarde le score via AJAX
     const formData = new FormData();
     formData.append('score', score);

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
     <head>
         <meta charset="UTF-8"/>
         <!-- <link rel="stylesheet" href="css/main.css"> -->
@@ -17,60 +16,51 @@
         <link rel="manifest" href="manifest.json">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Home</title>
+        <title>Scores</title>
     </head>
 
 <body>
     <a href="./game.html" id="back-btn"></a>
     <a href="./index.html" id="home-btn"></a>
 
-
     <div id="list-scores">
         <h1>Scores</h1>
         <table>
-
             <thead>
                 <tr>
                     <th>Utilisateur</th>
                     <th>Score</th>
                 </tr>
             </thead>
-
             <tbody>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-                <tr>
-                    <td class="user">Ksenia</td>
-                    <td class="score">5/10</td>
-                </tr>
-
-
+                <!-- Les lignes de scores seront ajoutées ici dynamiquement -->
             </tbody>
         </table>
     </div>
 
     <script type="module" src="js/app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('./assets/Data/scores.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#list-scores tbody");
+                    tableBody.innerHTML = ''; // Efface le contenu existant pour éviter les doublons
+                    data.forEach(entry => {
+                        const row = document.createElement("tr");
+                        const userCell = document.createElement("td");
+                        const scoreCell = document.createElement("td");
+                        
+                        userCell.textContent = entry.nom; // Utilise la clé "nom" du JSON
+                        scoreCell.textContent = entry.score + "/10"; // Formate le score si besoin
+                        
+                        row.appendChild(userCell);
+                        row.appendChild(scoreCell);
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erreur de chargement des scores:', error));
+        });
+    </script>        
 </body>
 </html>

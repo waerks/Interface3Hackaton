@@ -1,27 +1,31 @@
 <?php
 
-$scoresFile = 'assets/Data/scores.json';
+$usersFile = 'assets/Data/users.json';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer le score et le nom de l'utilisateur à partir de la requête POST
     $score = $_POST['score'];
+    $username = $_POST['nom'];
 
-    var_dump($_POST);
+    // Charger les utilisateurs depuis le fichier users.json
+    $users = json_decode(file_get_contents($usersFile), true);
 
-    // Charger les scores existants
-    $scores = json_decode(file_get_contents($scoresFile), true);
-
-    // Si le fichier est vide, créer un tableau vide
-    if (!is_array($scores)) {
-        $scores = [];
+    // Vérifier si l'utilisateur existe dans le fichier users.json
+    $userFound = false;
+    foreach ($users as &$user) {
+        if ($user['nom'] === $username) {
+            // Si l'utilisateur est trouvé, mettre à jour son score
+            $user['score'] = isset($user['score']) ? $user['score'] + $score : $score; // Additionner le score existant ou définir un nouveau score
+            $userFound = true;
+            break; // Sortir de la boucle une fois l'utilisateur trouvé
+        }
     }
-    
-    // Ajoute le nouveau score avec la date
-    $scores[] = [
-        'score' => $score,
-    ];
 
-    // Enregistrer le nouveau score
-    file_put_contents($scoresFile, json_encode($scores, JSON_PRETTY_PRINT));
-
-    echo "Score sauvegardé avec succès!";
+    if ($userFound) {
+        // Enregistrer les utilisateurs mis à jour dans users.json
+        file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
+        echo "Score sauvegardé avec succès pour l'utilisateur $username!";
+    } else {
+        echo "Utilisateur non trouvé dans users.json!";
+    }
 }

@@ -35,13 +35,13 @@ const totalQuestions = 5; // Limiter à 5 questions
 function preload() {
     this
         .load
-        .image('background', './assets/Sprites/background.png');
+        .image('background', './assets/Sprites/background.jpg');
     this
         .load
         .image('questionpanel', './assets/Sprites/Label1.png');
     this
         .load
-        .image('answerpanel', './assets/Sprites/Label2.png');
+        .image('answerpanel', './assets/Sprites/Label1.png');
     this
         .load
         .image('nextquestion', './assets/Sprites/Play.png');
@@ -120,7 +120,7 @@ function create() {
     logoImage = this
         .add
         .image(config.width / 2, config.height * 0.08, 'logo'); // Position un peu plus haute pour superposition
-    logoImage.setDisplaySize(config.width * 0.9, config.height * 0.1); // Taille plus petite pour que ça chevauche
+    logoImage.setDisplaySize(config.width * 0.8, config.height * 0.1); // Taille plus petite pour que ça chevauche
 
     // On met le logo au-dessus du panneau de question
     logoImage.setDepth(1); // Le `depth` plus élevé pour que le logo soit au-dessus
@@ -183,14 +183,14 @@ function create() {
         .add
         .image(config.width / 2, config.height * 0.9, 'nextquestion')
         .setInteractive();
-    nextQuestionImage.setDisplaySize(100, 100);
+    nextQuestionImage.setDisplaySize(50, 50);
     nextQuestionImage.on('pointerdown', nextQuestion);
 
     restartImage = this
         .add
         .image(config.width / 2, config.height * 0.9, 'restart')
         .setInteractive();
-    restartImage.setDisplaySize(100, 100);
+    restartImage.setDisplaySize(50, 50);
     restartImage.on('pointerdown', restart);
     restartImage.setVisible(false);
 
@@ -305,6 +305,11 @@ function nextQuestion() {
         }
         questionText.text = "Votre score est de " + score + " / 10";
         restartImage.setVisible(true);
+
+        // Redirection vers scores.html après 3 secondes
+        setTimeout(() => {
+            window.location.href = 'scores.html';
+        }, 3000);
     }
     nextQuestionImage.setVisible(false);
 }
@@ -327,6 +332,23 @@ function restart() {
         answerText[i].setVisible(true);
     }
     questionText.text = questions[questionIndex].title;
+
+    // Envoi du score au serveur
+    const username = localStorage.getItem("nom"); 
+    const data = { nom: username, score: score };
+
+    fetch('scoreTraitement.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded' // Utiliser ce type pour envoyer les données
+        },
+        body: new URLSearchParams(data).toString() // Convertir les données en chaîne de requête
+    })
+    .then(response => response.text()) // Utiliser text() si le serveur renvoie un message simple
+    .then(result => {
+        console.log('Réponse du serveur:', result); // Afficher la réponse pour déboguer
+    })
+    .catch(error => console.error('Erreur lors de la sauvegarde du score:', error));
 }
 
 // Fonction pour mélanger un tableau
@@ -336,4 +358,4 @@ function shuffleArray(array) {
 	  [array[i], array[j]] = [array[j], array[i]]; // Échange
 	}
 	return array;
-  }
+}
