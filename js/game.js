@@ -26,6 +26,14 @@ let questionText;
 let answerText = [];
 let restartImage;
 
+// Update the Favicon of the page with an SVG file
+let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+link.type = 'image/svg+xml'; // Set the type for SVG
+link.rel = 'icon'; // Use 'icon' for SVG
+link.href = './assets/Icons/sprout.svg'; // Replace 'path_to_your_favicon.svg' with the actual path to your SVG file
+document.getElementsByTagName('head')[0].appendChild(link);
+
+
 let goodAnswerSound;
 let wrongAnswerSound;
 let playButtonSound;
@@ -57,6 +65,8 @@ function preload() {
 
   this.load.json("questions", "./assets/Data/Questions.json");
 }
+
+preload = preload.bind(this);
 
 function create() {
   // construire l'objet questions à partir du JSON
@@ -141,7 +151,9 @@ function create() {
     nextButtonSound.play();
   });
   
-  
+  // Load the growingPlantSound
+  growingPlantSound = this.sound.add("growingPlantSound");
+
 
   // afficher 10 étoiles en bas de l'écran et on les rend invisible
   for (let i = 0; i < 10; i++) {
@@ -199,15 +211,12 @@ function checkAnswer(answerNumber) {
   answerPanelImage[questions[questionIndex].goodAnswer].tint = 0x22ff22;
   if (answerNumber == questions[questionIndex].goodAnswer) {
     score += 1;
-    // growingPlantSound = this.sound.add("growingPlantSound");
-    // growingPlantSound.play();
+    growingPlantSound.play();
     
-    // selectButtons.play();
     // tweenGoodAnswerPanel[answerNumber].play();
   } else {
     answerPanelImage[answerNumber].tint = 0xff0000;
     starImage[questionIndex].alpha = 0.4;
-    // selectButtons.play();
     // tweenWrongAnswerPanel[answerNumber].play();
   }
 }
