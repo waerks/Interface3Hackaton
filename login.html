@@ -1,52 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8"/>
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
-  <link rel="stylesheet" href="css/login.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin="crossorigin">
-  <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet">
-  <!-- Lien vers le fichier manifest.json -->
-  <link rel="manifest" href="manifest.json">
+    <head>
+        <meta charset="UTF-8"/>
+        <!-- <link rel="stylesheet" href="css/main.css"> -->
+        <link rel="stylesheet" href="css/login.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+            rel="stylesheet">
+        <!-- Lien vers le fichier manifest.json -->
+        <link rel="manifest" href="manifest.json">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home</title>
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Home</title>
+    </head>
 
-<body>
-  <a href="inscription.html" id="back-btn"></a>
-  <a href="index.html" id="home-btn"></a>
+    <body>
+        <a href="inscription.html" id="back-btn"></a>
+        <a href="index.html" id="home-btn"></a>
 
+        <div id="login-page">
+            <h1>Login</h1>
+            <p>Identifiez-vous pour commencer le quiz</p>
 
-  <div id="login-page">
-    <h1>Login</h1>
-    <p>Identifiez-vous pour commencer le quiz</p>
-
-    <form id="loginForm">
-      <label for="user">Utilisateur</label>
-      <input type="text" id="user" name="user" placeholder="Entrez votre nom d'utilisateur" required />
-      <div id="login-btn"></div>
-    </form>
-  </div>
-
-  <script>
-    // Sélectionner les éléments HTML
-    const loginPage = document.getElementById("login-page");
-    const loginBtn = document.getElementById("login-btn");
-
-    // Au click sur loginBtn -> on est redirigé sur le game.html pout débuter le quiz
-    loginBtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      window.location.href = "./game.html";
-    });
-  </script>
-</body>
-
+            <form id="loginForm" action="loginTraitement.php" method="POST">
+                <label for="user">Utilisateur</label>
+                <input
+                    type="text"
+                    id="user"
+                    name="nom"
+                    placeholder="Entrez votre nom d'utilisateur"
+                    required="required"/>
+                    <button id="login-btn" type="submit"></button>
+            </form>
+        </div>
+    </body>
 </html>

@@ -28,26 +28,14 @@
         <h1>Inscription</h1>
         <p>Inscrivez-vous pour commencer le quiz</p>
 
-        <form id="inscriptionForm">
+        <form id="inscriptionForm" action="./inscriptionTraitement.php" method="POST">
             <label for="user">Utilisateur</label>
-            <input type="text" id="user" name="user" placeholder="Entrez votre nom d'utilisateur" required />
+            <input type="text" id="user" name="nom" placeholder="Entrez votre nom d'utilisateur" required />
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Entrez votre email" required />
-            <div id="inscription-btn"></div>
+            <button id="inscription-btn" type="submit"></button>
         </form>
     </div>
-
-    <script>
-        // Sélectionner les éléments HTML
-        const inscriptionPage = document.getElementById("inscription-page");
-        const inscriptionBtn = document.getElementById("inscription-btn");
-
-        // Au click sur loginBtn -> on est redirigé sur le game.html pout débuter le quiz
-        inscriptionBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            window.location.href = "./login.html";
-        });
-    </script>
 </body>
 
 </html>
