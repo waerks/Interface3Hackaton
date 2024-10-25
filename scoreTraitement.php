@@ -1,11 +1,21 @@
 <?php
 
+session_start();
+
+$_SESSION['username'] = $user['nom'];
+
 $usersFile = 'assets/Data/users.json';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer le score et le nom de l'utilisateur à partir de la requête POST
+    // Récupérer le score à partir de la requête POST
     $score = $_POST['score'];
-    $username = $_POST['nom'];
+
+    // Récupérer le nom de l'utilisateur depuis la session
+    if (!isset($_SESSION['username'])) {
+        echo "Utilisateur non connecté!";
+        exit; // Stop the script if user is not logged in
+    }
+    $username = $_SESSION['username'];
 
     // Charger les utilisateurs depuis le fichier users.json
     $users = json_decode(file_get_contents($usersFile), true);

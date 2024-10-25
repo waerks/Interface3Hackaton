@@ -32,6 +32,20 @@ let wowText;
 let initialAnswerTextPositions = [];
 const totalQuestions = 5; // Limiter à 5 questions
 
+// Update the Favicon of the page with an SVG file
+let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+link.type = 'image/svg+xml'; // Set the type for SVG
+link.rel = 'icon'; // Use 'icon' for SVG
+link.href = './assets/Icons/sprout.svg'; // Replace 'path_to_your_favicon.svg' with the actual path to your SVG file
+document.getElementsByTagName('head')[0].appendChild(link);
+
+let goodAnswerSound;
+let wrongAnswerSound;
+let playButtonSound;
+let nextButtonSound;
+let restartButtonSound;
+let growingPlantSound;
+
 function preload() {
     this
         .load
@@ -61,11 +75,22 @@ function preload() {
     this
         .load
         .audio('wrongsound', './assets/Sound/wrong.wav');
+    this.load.image("soundOn", "./assets/Sprites/soundOn.png");
+    this.load.image("soundOff", "./assets/Sprites/soundOff.png");
+    this.load.audio("backgroundMusic", "./assets/Sound/Galactic Odyssey.wav");
+    this.load.audio("goodAnswerSound", "./assets/Sound/goodAnswer.wav");
+    this.load.audio("wrongAnswerSound", "./assets/Sound/badAnswer.wav");
+    this.load.audio("playButtonSound", "./assets/Sound/playButton.wav");
+    this.load.audio("nextButtonSound", "./assets/Sound/selectButtons.wav");
+    this.load.audio("restartButtonSound", "./assets/Sound/startButton.wav");
+    this.load.audio("growingPlantSound", "./assets/Sound/growingPlant.wav");
 
     this
         .load
         .json('questions', './assets/Data/Questions.json');
 }
+
+preload = preload.bind(this);
 
 function create() {
     questions = this
@@ -89,6 +114,27 @@ function create() {
         .add
         .image(0, 0, 'background')
         .setOrigin(0.5, 0.5); // Centrer l'image
+
+    const music = this.sound.add("backgroundMusic", {
+        loop: true,
+        volume: 0.5
+        });
+    
+        music.play();
+
+    const button = this.add.image(50, 50, "soundOn").setInteractive();
+
+    button.setDepth(1);
+
+    button.on('pointerdown', function() {
+        if (music.mute) {
+        music.setMute(false);
+        button.setTexture("soundOn");
+        } else {
+        music.setMute(true);
+        button.setTexture("soundOff");
+        }
+    });
 
     // Calculer le rapport d'aspect de l'image
     const aspectRatio = backImage.width / backImage.height;
@@ -186,6 +232,14 @@ function create() {
     nextQuestionImage.setDisplaySize(50, 50);
     nextQuestionImage.on('pointerdown', nextQuestion);
 
+    nextButtonSound = this.sound.add("nextButtonSound");
+    nextQuestionImage.on("pointerdown", function() {
+      nextButtonSound.play();
+    });
+
+      // Load the growingPlantSound
+    growingPlantSound = this.sound.add("growingPlantSound");
+
     restartImage = this
         .add
         .image(config.width / 2, config.height * 0.9, 'restart')
@@ -193,6 +247,7 @@ function create() {
     restartImage.setDisplaySize(50, 50);
     restartImage.on('pointerdown', restart);
     restartImage.setVisible(false);
+    restartButtonSound = this.sound.add("restartButtonSound");
 
     // Étoiles
     for (let i = 0; i < 10; i++) {
@@ -273,7 +328,7 @@ function checkAnswer(answerNumber) {
 
     if (answerNumber === questions[questionIndex].goodAnswer) {
         score += 1;
-        goodAnswerSound.play();
+        growingPlantSound.play();
     } else {
         answerPanelImage[answerNumber].tint = 0xFF0000;
         starImage[questionIndex].alpha = 0.4;
@@ -312,6 +367,8 @@ function nextQuestion() {
         }, 3000);
     }
     nextQuestionImage.setVisible(false);
+
+    nextButtonSound.play();
 }
 
 function restart() {
@@ -332,23 +389,7 @@ function restart() {
         answerText[i].setVisible(true);
     }
     questionText.text = questions[questionIndex].title;
-
-    // Envoi du score au serveur
-    const username = localStorage.getItem("nom"); 
-    const data = { nom: username, score: score };
-
-    fetch('scoreTraitement.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded' // Utiliser ce type pour envoyer les données
-        },
-        body: new URLSearchParams(data).toString() // Convertir les données en chaîne de requête
-    })
-    .then(response => response.text()) // Utiliser text() si le serveur renvoie un message simple
-    .then(result => {
-        console.log('Réponse du serveur:', result); // Afficher la réponse pour déboguer
-    })
-    .catch(error => console.error('Erreur lors de la sauvegarde du score:', error));
+    restartButtonSound.play();
 }
 
 // Fonction pour mélanger un tableau

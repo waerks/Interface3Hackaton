@@ -1,19 +1,5 @@
-const CACHE_NAME = 'my-cache-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/app.js',
-  '/images/icon-192x192.png',
-  '/images/icon-512x512.png'
-];
-
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    })
-  );
+  console.log('Service worker installé');
 });
 
 self.addEventListener('fetch', (event) => {
